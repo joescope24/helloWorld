@@ -40,20 +40,20 @@
     {% else %}
     <form action="{{ url_for('contact') }}" method="post">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="exampleInputField1" name="first_name" required>
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" name="first_name" required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="exampleInputField1" name="last_name" required>
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="last_name" required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="exampleInputField1" name="email" required>
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" name="email" required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Favorite Word</label>
-            <input type="text" class="form-control" id="exampleInputField1" name="favoriteWord" required>
+            <label class="form-label">Favorite Word</label>
+            <input type="text" class="form-control" name="favoriteWord" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
