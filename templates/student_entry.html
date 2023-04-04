@@ -26,7 +26,7 @@
 <form class="row g-3"
       action="{{ url_for('student_edit', student_id=student['student_id']) if student else url_for('student_create') }}" method="post">
   <div class="col-md-4">
-    <label for="first_name" class="form-label"><strong>First Name</strong></label>
+    <label for="first_name" class="form-label"><strong>First Name (*)</strong></label>
     {% if action and action in ['create', 'update'] %}
     <input type="text" class="form-control" id="first_name" name="first_name" value="{{ student['first_name'] if student else '' }}" required>
     {% else %}
@@ -34,7 +34,7 @@
     {% endif %}
   </div>
   <div class="col-md-4">
-    <label for="last_name" class="form-label"><strong>Last Name</strong></label>
+    <label for="last_name" class="form-label"><strong>Last Name (*)</strong></label>
     {% if action and action in ['create', 'update'] %}
     <input type="text" class="form-control" id="last_name" name="last_name" value="{{ student['last_name'] if student else '' }}" required>
     {% else %}
@@ -42,7 +42,7 @@
     {% endif %}
   </div>
   <div class="col-md-4">
-    <label for="birth_date" class="form-label"><strong>Birth Date</strong></label>
+    <label for="birth_date" class="form-label"><strong>Birth Date (*)</strong></label>
     {% if action and action in ['create', 'update'] %}
     <input type="date" class="form-control" id="birth_date" name="birth_date" value="{{ student['birth_date'].strftime('%Y-%m-%d') if student else '' }}" required>
     {% else %}
@@ -65,6 +65,14 @@
         {% for each_major in majors %}
             {{ each_major['major'] if student and each_major['major_id'] == student['major_id'] else ''}}
         {% endfor %}
+    {% endif %}
+  </div>
+  <div class="col-md-8">
+    <label for="email" class="form-label"><strong>Email (*)</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="email" class="form-control" id="email" name="email" value="{{ student['email'] if student else '' }}" required>
+    {% else %}
+        <br>{{ student['email'] }}8
     {% endif %}
   </div>
 
@@ -102,17 +110,6 @@
             {% endif %}
       </label>
   </div>
-  {% if action and action in ['read', 'update'] %}
-  <div class="col-md-4">
-    <label for="num_credits_completed" class="form-label"><strong>Email</strong></label>
-    {% if action and action == 'update' %}
-    <input type="text" class="form-control" id="email" name="email"
-           value="{{ student['email'] if student else '' }}" required>
-    {% else %}
-        <br> {{ student['email'] }}
-    {% endif %}
-  </div>
-
 
   </div>
   <div class="col-12 text-center">
